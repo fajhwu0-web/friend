@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candidate Profile — Formal Introduction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Special+Elite&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #efe7d8;
+    --paper-dark: #e4dac5;
+    --ink: #1e2a44;
+    --ink-soft: #3a4360;
+    --mustard: #c99a2e;
+    --stamp: #b23a2e;
+    --line: #8b8378;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.03), transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(0,0,0,0.035), transparent 45%);
+    color: var(--ink);
+    font-family: 'IBM Plex Mono', monospace;
+    line-height: 1.5;
+  }
+
+  .wrap{
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+
+  /* ---------- HEADER / STAMP ---------- */
+  .eyebrow-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-family:'Special Elite', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 10px;
+    margin-bottom: 28px;
+  }
+
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width: 74px;
+    height: 74px;
+    border: 3px solid var(--stamp);
+    border-radius: 50%;
+    color: var(--stamp);
+    font-family:'Special Elite', monospace;
+    font-size: 0.62rem;
+    text-align:center;
+    line-height:1.15;
+    transform: rotate(-9deg);
+    letter-spacing: 0.03em;
+    flex-shrink:0;
+    margin-left: 16px;
+  }
+
+  .headline-block{ margin-bottom: 36px; }
+
+  .headline-block .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stamp);
+    margin-bottom: 10px;
+  }
+
+  h1{
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-optical-sizing: auto;
+    font-size: clamp(2.4rem, 6vw, 4.1rem);
+    line-height: 0.98;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+
+  h1 em{
+    font-style: italic;
+    font-weight: 600;
+    color: var(--stamp);
+  }
+
+  .subhead{
+    font-family:'Special Elite', monospace;
+    font-size: 1rem;
+    color: var(--ink-soft);
+    max-width: 52ch;
+  }
+
+  /* ---------- PHOTO + INTRO ---------- */
+  .intro-grid{
+    display:grid;
+    grid-template-columns: 220px 1fr;
+    gap: 28px;
+    margin: 40px 0 44px;
+    align-items:start;
+  }
+
+  .photo-frame{
+    aspect-ratio: 3/4;
+    border: 2px dashed var(--line);
+    background: var(--paper-dark);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding: 16px;
+    font-family:'Special Elite', monospace;
+    font-size: 0.78rem;
+    color: var(--line);
+    position: relative;
+  }
+
+  .photo-frame img{
+    width: 220px;
+    height: 294px;
+    object-fit: cover;
+  }
+
+  .photo-frame::before,
+  .photo-frame::after{
+    content:"";
+    position:absolute;
+    width:14px; height:14px;
+    border: 2px solid var(--line);
+    border-radius:50%;
+    top: 8px;
+  }
+  .photo-frame::before{ left:8px; }
+  .photo-frame::after{ right:8px; }
+
+  .intro-text p{
+    margin: 0 0 14px;
+    font-size: 0.98rem;
+  }
+  .intro-text p:first-child{
+    font-family:'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  /* ---------- SPEC SHEET ---------- */
+  .section-title{
+    font-family:'Special Elite', monospace;
+    font-size: 0.9rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--stamp);
+    margin: 0 0 16px;
+    display:flex;
+    align-items:center;
+    gap: 12px;
+  }
+  .section-title::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background: repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 11px);
+  }
+
+  .spec-sheet{
+    border: 2px solid var(--ink);
+    margin-bottom: 44px;
+    background: rgba(255,255,255,0.25);
+  }
+
+  .spec-row{
+    display:grid;
+    grid-template-columns: 180px 1fr;
+    border-bottom: 1px solid var(--line);
+  }
+  .spec-row:last-child{ border-bottom:none; }
+
+  .spec-row dt{
+    font-family:'Special Elite', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    padding: 12px 14px;
+    border-right: 1px solid var(--line);
+    background: var(--paper-dark);
+  }
+  .spec-row dd{
+    margin:0;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+  }
+
+  dl.spec-sheet{ margin:0; }
+
+  /* ---------- CRITERIA (looking for) ---------- */
+  .criteria-list{
+    list-style:none;
+    margin: 0 0 44px;
+    padding:0;
+    display:grid;
+    gap: 10px;
+  }
+  .criteria-list li{
+    display:flex;
+    gap: 12px;
+    align-items:flex-start;
+    font-size: 0.95rem;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.3);
+  }
+  .criteria-list li::before{
+    content: "✓";
+    font-family:'Special Elite', monospace;
+    color: var(--stamp);
+    font-weight: bold;
+    flex-shrink:0;
+  }
+
+  /* ---------- REFERENCES / QUOTES ---------- */
+  .refs{
+    display:grid;
+    gap: 18px;
+    margin-bottom: 48px;
+  }
+  blockquote{
+    margin:0;
+    padding: 16px 18px;
+    border-left: 3px solid var(--mustard);
+    font-family:'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    background: rgba(255,255,255,0.25);
+  }
+  blockquote cite{
+    display:block;
+    margin-top: 8px;
+    font-family:'Special Elite', monospace;
+    font-style: normal;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ---------- TICKET / TEAR-OFF TABS ---------- */
+  .ticket{
+    border: 2px solid var(--ink);
+    background: rgba(255,255,255,0.3);
+    margin-bottom: 8px;
+  }
+  .ticket-top{
+    padding: 22px 20px;
+    text-align:center;
+  }
+  .ticket-top .cta-title{
+    font-family:'Fraunces', serif;
+    font-weight: 900;
+    font-size: 1.7rem;
+    margin: 0 0 8px;
+  }
+  .ticket-top p{
+    margin:0;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  .snip-line{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    padding: 0 16px;
+    color: var(--line);
+    font-size: 0.85rem;
+  }
+  .snip-line::before,
+  .snip-line::after{
+    content:"";
+    flex:1;
+    border-top: 2px dashed var(--line);
+  }
+
+  .tabs{
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .tab{
+    border-right: 1px dashed var(--line);
+    padding: 16px 6px;
+    text-align:center;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family:'Special Elite', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    min-height: 130px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    letter-spacing: 0.02em;
+  }
+  .tab:last-child{ border-right:none; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    margin-top: 40px;
+    text-align:center;
+    font-family:'Special Elite', monospace;
+    font-size: 0.72rem;
+    color: var(--line);
+    letter-spacing: 0.03em;
+  }
+
+  @media (max-width: 620px){
+    .intro-grid{ grid-template-columns: 1fr; }
+    .photo-frame{ max-width: 220px; margin: 0 auto; }
+    .spec-row{ grid-template-columns: 140px 1fr; }
+    .tabs{ grid-template-columns: repeat(3, 1fr); }
+    .tab:nth-child(3){ border-right: 1px dashed var(--line); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow-row">
+    <span>Character Reference · File No. 01</span>
+    <span class="stamp">VERIFIED BY FRIENDS</span>
+  </div>
+
+  <div class="headline-block">
+    <div class="eyebrow">Introduction</div>
+    <h1><em>Dugashev Zulyar</em></h1>
+    <p class="subhead">
+      The following profile has been prepared by close acquaintances of
+      <strong>Amir</strong> to provide an accurate, first-hand account of
+      his character, background, and suitability as a partner.
+    </p>
+  </div>
+
+  <div class="intro-grid">
+    <div class="photo-frame">
+      <img src="photo_2026-08-19_23-22-13.jpg" alt="[Name]">
+    </div>
+    <div class="intro-text">
+      <p>“A brief, honest account follows.”</p>
+      <p>
+        He's a good friend of mine; we've known each other for over 10 years. He's into sports, dresses well, and gets along with almost everyone. He's a great guy for a girl, because he's well-mannered and would never hurt a girl. He works, studies, and is single.
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">Personal Details</div>
+  <dl class="spec-sheet">
+    <div class="spec-row"><dt>Name</dt><dd>Dugashev Zulyar</dd></div>
+    <div class="spec-row"><dt>Age</dt><dd>17</dd></div>
+    <div class="spec-row"><dt>Location</dt><dd>Almaty</dd></div>
+    <div class="spec-row"><dt>Height</dt><dd>175 cm</dd></div>
+    <div class="spec-row"><dt>Occupation</dt><dd>Student</dd></div>
+    <div class="spec-row"><dt>Interests</dt><dd>Gym, army, volleyball</dd></div>
+    <div class="spec-row"><dt>Notable strength</dt><dd>He is very good at many sports, especially boxing.</dd></div>
+  </dl>
+
+  <div class="section-title">Qualities Sought in a Partner</div>
+  <ul class="criteria-list">
+    <li>Beautiful</li>
+    <li>Kind heart</li>
+    <li>Good sense of humor</li>
+    <li>Intelligent</li>
+  </ul>
+
+  <div class="section-title">Statements from Acquaintances</div>
+  <div class="refs">
+    <blockquote>
+      A very good and kind person, ready to give his life for his people
+    </blockquote>
+  </div>
+
+  <div class="ticket">
+    <div class="ticket-top">
+      <p class="cta-title">To Make Contact</p>
+      <p>Inquiries may be directed to any of the contacts listed below.</p>
+    </div>
+    <div class="snip-line">✂</div>
+    <div class="tabs">
+      <div class="tab">+7 747 241 94 10 · +7 747 241 94 10 · +7 747 241 94 10</div>
+      <div class="tab">+7 747 241 94 10 · +7 747 241 94 10 · +7 747 241 94 10</div>
+      <div class="tab">+7 747 241 94 10 · +7 747 241 94 10 · +7 747 241 94 10</div>
+      <div class="tab">+7 747 241 94 10 · +7 747 241 94 10 · +7 747 241 94 10</div>
+      <div class="tab">+7 747 241 94 10 · +7 747 241 94 10 · +7 747 241 94 10</div>
+    </div>
+  </div>
+
+  <footer>
+    Prepared by acquaintances on behalf of the subject named above ·
+    All statements provided in good faith
+  </footer>
+
+</div>
+</body>
+</html>
